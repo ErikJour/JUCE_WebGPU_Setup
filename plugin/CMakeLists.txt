@@ -34,8 +34,8 @@ if (APPLE)
 endif()
 
 if(APPLE)
-#    target_sources(JuceWebGpuSetup PRIVATE
-#            source/GpuSurface.mm)
+    target_sources(JuceWebGpuSetup PRIVATE
+            ui/GpuSurface.mm)
     target_link_libraries(JuceWebGpuSetup PRIVATE
             "-framework QuartzCore"
             "-framework Metal")

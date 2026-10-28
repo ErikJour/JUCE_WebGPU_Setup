@@ -232,9 +232,8 @@ std::pair<WGPUSurfaceTexture, WGPUTextureView> Scene::getNextSurfaceViewData() c
     return { surfaceTexture, targetView };
 }
 
-void Scene::setUniforms(const float time)
+void Scene::setUniforms()
 {
-    mUniforms.time = time;
 
     mUniforms.pressed = mMouseClicked;
 
@@ -253,7 +252,7 @@ void Scene::renderMeshes(const WGPURenderPassEncoder renderPass) const {
     setMeshBuffers(mSphereVertexBuffer, mSphereIndexBuffer, mSphereIndexCount, MAT_SPHERE, renderPass);
 }
 
-void Scene::renderFrame(const float time) {
+void Scene::renderFrame() {
     //====================================================================================
     //Add reloadable shader setup here
     //====================================================================================
@@ -266,7 +265,7 @@ void Scene::renderFrame(const float time) {
 #endif
     if (!mPipeline) return;
     if (!mSurface)  return;
-    setUniforms(time);
+    setUniforms();
     //====================================================================================
     //Get the surface texture and the target view
     //====================================================================================
