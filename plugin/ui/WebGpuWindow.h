@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Utilities.h"
 #include "Scene.h"
-//#include "GpuSurface.h"
+#include "GpuSurface.h"
 
 class WebGpuWindow {
 public:
@@ -25,8 +25,7 @@ public:
     static void getLimits(WGPUAdapter adapter, const WGPUSupportedLimits &limits);
     void applySurfaceConfig(uint32_t width,uint32_t height);
 
-
-//    Scene& getScene() { return mScene; }
+    Scene& getScene() { return mScene; }
     [[nodiscard]] bool hasSurface()     const { return mSurface != nullptr; }
     [[nodiscard]] void* getNativeView() const { return mNativeView; }
 private:
