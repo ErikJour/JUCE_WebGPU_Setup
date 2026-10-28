@@ -45,6 +45,8 @@ target_sources(JuceWebGpuSetup
         PRIVATE
         source/JuceWebGpuEditor.cpp
         source/JuceWebGpuProcessor.cpp
+        ui/webGpuWindow.cpp
+        ui/Scene.cpp
 )
 
 target_include_directories(JuceWebGpuSetup
@@ -52,6 +54,7 @@ target_include_directories(JuceWebGpuSetup
         include
         source
         ui
+        shaders
 )
 
 target_link_libraries(JuceWebGpuSetup
@@ -76,6 +79,11 @@ target_compile_definitions(JuceWebGpuSetup
 #Shader files
 #==============================
 set(SHADER_FILES
+        "shaders/vertex_main.wgsl"
+        "shaders/fragment_main.wgsl"
+#        "shaders/common.wgsl"
+#        "shaders/mat_plane.wgsl"
+#        "shaders/mat_sphere.wgsl"
 )
 
 set(SHADER_SOURCE "")

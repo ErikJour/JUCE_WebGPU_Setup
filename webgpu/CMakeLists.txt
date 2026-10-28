@@ -3,7 +3,13 @@ project(webgpu-backend-dawn VERSION 1.0.0)
 
 message(STATUS "Using Dawn backend for WebGPU")
 
-add_library(webgpu INTERFACE)
+add_library(webgpu INTERFACE
+        ../plugin/ui/WebGpuWindow.cpp
+        ../plugin/ui/WebGpuWindow.h
+		../plugin/ui/Utilities.h
+		../plugin/ui/Scene.cpp
+		../plugin/ui/Scene.h
+		../plugin/ui/ResourceManager.h)
 
 if (EMSCRIPTEN)
 
