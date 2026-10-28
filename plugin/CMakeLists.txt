@@ -34,18 +34,17 @@ if (APPLE)
 endif()
 
 if(APPLE)
-    target_sources(JuceWebGpuSetup PRIVATE
-            source/GpuSurface.mm)
-    target_link_libraries(TrainingHour PRIVATE
+#    target_sources(JuceWebGpuSetup PRIVATE
+#            source/GpuSurface.mm)
+    target_link_libraries(JuceWebGpuSetup PRIVATE
             "-framework QuartzCore"
             "-framework Metal")
 endif()
 
 target_sources(JuceWebGpuSetup
         PRIVATE
-        source/TrainingHourEditor.cpp
-        source/TrainingHourProcessor.cpp
-        audio_utils/AudioUtils.h
+        source/JuceWebGpuEditor.cpp
+        source/JuceWebGpuProcessor.cpp
 )
 
 target_include_directories(JuceWebGpuSetup
@@ -85,12 +84,12 @@ foreach(SHADER_FILE ${SHADER_FILES})
     string(APPEND SHADER_SOURCE "${SHADER_CHUNK}\n")
 endforeach()
 
-target_compile_definitions(TrainingHour
+target_compile_definitions(JuceWebGpuSetup
         PRIVATE
         DEBUG_SHADER_DIR="${CMAKE_CURRENT_SOURCE_DIR}/shaders"
 )
 
-target_include_directories(TrainingHour PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
+target_include_directories(JuceWebGpuSetup PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 
 
 
